@@ -43,10 +43,10 @@ onChange={(e)=>console.log(e.target.value)}
 class SearchBar extends React.Component {
    state={ term: ''}
 
-   onFormSubmit(event) {
-
+   onFormSubmit = event => {
        event.preventDefault()
-       console.log(this.state.term)
+       
+       this.props.onSubmit(this.state.term) // we should give the search responsibilities to the App
    }
 
    
