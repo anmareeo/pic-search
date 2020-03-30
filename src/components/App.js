@@ -2,24 +2,40 @@ import React from 'react'
 import axios from 'axios'
 import SearchBar from './SearchBar'
 
-
+ /*
 class App extends React.Component {
     onSearchSubmit(term) {
         axios.get('https://api.unsplash.com/search/photos', {
             params: { query: term },
             headers: {
-            Authorization: 'Client-ID BXaTQwuK5M_bGhicYq3odzm5I1UuloyU2d6UKB5hiGs'
+            Authorization: 
+            'Client-ID BXaTQwuK5M_bGhicYq3odzm5I1UuloyU2d6UKB5hiGs'
             }
-        });
+           
+        }) 
+        .then (response=>{ //this is a promise that lets us know that a request is successful
+            console.log(response.data.results);
+
+        })
+
     }
-    render() {
-        return (
-            <div className = "ui container" style={{ marginTop: '20px'}}>
-            <SearchBar onSubmit= {this.onSearchSubmit} />
-            </div>
-        )
-    }
-}
+        above is how we get access to the objects that represents imaging. Chaing on a .then request. This is the more difficult method, Below is the easier method.
+        ====================================================================*/
+
+        class App extends React.Component {
+            async onSearchSubmit(term) { //the async keyword allows us to use the async syntax inside this function.Await is a keyword that we will use in front of the axios request, and then we will turn that into a variable called response.
+                const response = await axios.get('https://api.unsplash.com/search/photos', {
+                    params: { query: term },
+                    headers: {
+                    Authorization: 
+                    'Client-ID BXaTQwuK5M_bGhicYq3odzm5I1UuloyU2d6UKB5hiGs'
+                    }
+                    
+                }) 
+         console.log (response.data.results)
+            }
+        
+
 
 export default App
 
