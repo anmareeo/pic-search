@@ -5,18 +5,29 @@ class ImageCard extends React.Component {
     constructor (props){
         super(props)
 
+        this.state = {spans: 0}
+
         this.imageRef = React.createRef()
     }
 componentDidMount () {
-    console.log(this.imageRef)
-    console.log(this.imageRef.current.clientHeight) //we reach into the DOM and we get back different images, The ref itself is a JS object that has a current property, and the current property references a DOM note, in this case, an image. On this image, it will show the height. Note the console.log of (this.imageRef.current.clientHeight) returned 0---all height of zero. That is because the console only knows what is in there once we expand. We see zero because the DOM is reaching out to the API to get that image, and it takes some time, so we are trying to access that height before it even knows what it is.
+    this.imageRef.current.addEventListener('load', this.setSpans)
+    //console.log(this.imageRef)
+    //console.log(this.imageRef.current.clientHeight) //we reach into the DOM and we get back different images, The ref itself is a JS object that has a current property, and the current property references a DOM note, in this case, an image. On this image, it will show the height. Note the console.log of (this.imageRef.current.clientHeight) returned 0---all height of zero. That is because the console only knows what is in there once we expand. We see zero because the DOM is reaching out to the API to get that image, and it takes some time, so we are trying to access that height before it even knows what it is.
 }
 
+setSpans =()=> {
+    //console.log(this.imageRef.current.clientHeight) this brought the correct height immediately because of the code just under componentDidMount.
+    const height = this.imageRef.current.clientHeight;
+
+    const spans = Math.ceil(height / 10)
+    
+    this.setState( { spans } )
+}
 
     render() {
         const {description, urls} = this.props.image //destructuring to avoid duplicating words
         return (
-            <div>
+            <div style ={{gridRowEnd: `span ${this.state.spans}`}}>
                 <img ref={this.imageRef}alt={description} src ={urls.regular} />
             </div>
             
