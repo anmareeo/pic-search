@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './ImageList.css'
 
 
 /*we want to make sure that the onInputChange method gets called everytime a user puts text into the input field, so we will add a new prop of onChange, and then pass it a reference to the method we just created. See below.***NOTE*** in the input field, we are passing a method to onChange, onInputChange is a function, it is a callback function, but we do not want it to have the parentheses after it, or else onInputChange would be called every time the component is rendered. We just want the function to be called at some time in the future. So we are just passing a reference to this function to the input element so that the input can call that function sometime in the future.  
