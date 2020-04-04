@@ -232,6 +232,20 @@ Change this line as shown above--  <form onSubmit={this.onFormSubmit}className =
 Like this:
     <form onSubmit={event=> this.onFormSubmit(event)} here, we are defining an arrow function, and passing it down into the form, so when the form gets submitted,it's going to call the arrow function and then execute this.onFormSubmit(event). 
 
+
+//IMPORTANT, regarding "this": Anytime you have a callback function, to be safe, use the arrow function syntax. It is going to automatically bind this function and will make sure it always has the appropriate value of "this" inside of it.
+    Example: See onFormSubmit code in the SearchBar component.
+        
+
+Search Bar component
+With the props system we only communicate from a parent down to a child. That ended up being and issue because we wanted to communicate the search term from the search bar up to the parent (App)component. in order to communicate from a child to a parent, we pass a callback from the parent to the child and then the child we call that callback.
+    Example: See this.props.onSubmit(this.state.term) under the Example above. This is identical to what we did with the event handlers in the return section of the SearchBar.
 */
+
+
+
+
+
+
 
 

@@ -49,6 +49,10 @@ To create a ref, we are going to define our constructor function. We are going t
 * once we assign that ref as an instance variable on our class, we are going to then go down to our render method and pass that ref into some particular JSX element as a prop.
 
 
+Ref system:
+Anytime we want to reach into the DOM and interact with some individual element, we are going to want to create a Ref inside of the constructor and then we will wire it up to an individual element by passing it as a ref property. Then later on we can access that ref and get a handle on the actual DOM node. 
+
+Remember, these are JSX tags, not html. We cannot somethow maintain a reference to this jsx element. We have to make use of the ref system if we ever want to interact with an actual DOM element.
 
 
 

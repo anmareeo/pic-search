@@ -42,4 +42,7 @@ numbers.map ((num) => { //the inner function is going to be called with each ele
 })
 
 
+Main take-aways:
+Every time you want to render a list, you're probably going to be reaching for that map function. Anytime we want to make a list, we should define a key on the root element that we are rendering into that list. In general we want to use a key that is consistent and unchanging for each record between re-renders. So if you are ever working with data that has an id property, you're almost always going to use the id of each record as the key property. See the Image tag above.
+
 */
