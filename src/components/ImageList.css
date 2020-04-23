@@ -12,10 +12,10 @@
 }
 
 *{
-    background-color: aliceblue;
-    border-color: navy;
+    background-color: rgb(247, 211, 211);
+    border-color: darkolivegreen;
 }
 
 .ui segment{
-    border-color: navy;
+    border-color: darkolivegreen;
 }
