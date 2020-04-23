@@ -12,10 +12,10 @@
 }
 
 *{
-    background-color: gainsboro;
-    border-color: black
+    background-color: aliceblue;
+    border-color: navy;
 }
 
 .ui segment{
-    border-color: black;
+    border-color: navy;
 }
